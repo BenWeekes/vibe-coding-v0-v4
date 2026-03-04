@@ -2,9 +2,9 @@
 
 A Next.js app that connects to an [Agora Conversational AI](https://www.agora.io/en/products/conversational-ai/) agent with real-time voice and text chat. Click **Start Call**, talk, and see live transcripts in the chat panel.
 
-## Deploy with an AI Coding Platform
+## Deploy with v0
 
-Use this prompt to import the repo into your AI coding platform:
+Use this prompt to import the repo into v0:
 
 ```
 Build this Agora Voice AI Agent: https://github.com/BenWeekes/vibe-coding-v0-v4 — be sure to read AGENT.md in full.
