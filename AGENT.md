@@ -115,10 +115,7 @@ UIDs are strings: agent = `"100"`, user = `"101"`. Channel is random 10-char alp
     "enable_string_uid": false,
     "idle_timeout": 120,
     "advanced_features": {
-      "enable_bhvs": true,
-      "enable_rtm": true,
-      "enable_aivad": true,
-      "enable_sal": false
+      "enable_rtm": true
     },
     "llm": {
       "url": "{LLM_URL or https://api.openai.com/v1/chat/completions}",
@@ -130,14 +127,21 @@ UIDs are strings: agent = `"100"`, user = `"101"`. Channel is random 10-char alp
       "params": { "model": "{LLM_MODEL or gpt-4o-mini}" },
       "style": "openai"
     },
-    "vad": { "silence_duration_ms": 300 },
     "asr": { "vendor": "ares", "language": "en-US" },
     "tts": "{ttsConfig}",
     "parameters": {
+      "enable_dump": true,
       "transcript": {
         "enable": true,
         "protocol_version": "v2",
         "enable_words": false
+      }
+    },
+    "turn_detection": {
+      "config": {
+        "end_of_speech": {
+          "mode": "semantic"
+        }
       }
     }
   }

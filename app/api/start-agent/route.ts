@@ -202,10 +202,7 @@ export async function POST(req: NextRequest) {
       enable_string_uid: false,
       idle_timeout: 120,
       advanced_features: {
-        enable_bhvs: true,
         enable_rtm: true,
-        enable_aivad: true,
-        enable_sal: true,
       },
       llm: {
         url: llmUrl,
@@ -217,14 +214,21 @@ export async function POST(req: NextRequest) {
         params: { model: llmModel },
         style: "openai",
       },
-      vad: { silence_duration_ms: 300 },
       asr: { vendor: "ares", language: "en-US" },
       tts: ttsConfig,
       parameters: {
+        enable_dump: true,
         transcript: {
           enable: true,
           protocol_version: "v2",
           enable_words: false,
+        },
+      },
+      turn_detection: {
+        config: {
+          end_of_speech: {
+            mode: "semantic",
+          },
         },
       },
     },
