@@ -7,7 +7,7 @@ A Next.js app that connects to an [Agora Conversational AI](https://www.agora.io
 Use this prompt to import the repo into v0:
 
 ```
-Build this Agora Voice AI Agent: https://github.com/BenWeekes/vibe-coding-v0-v4 — be sure to read AGENT.md in full.
+Build this Agora Voice AI Agent: https://github.com/AgoraIO-Conversational-AI/vibe-coding-v0 — be sure to read AGENT.md in full.
 ```
 
 When prompted for environment variables, provide:
