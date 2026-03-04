@@ -1,0 +1,189 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* ── Zinc scale reference ───────────────────────────────────────
+   zinc/50  = #fafafa   zinc/100 = #f4f4f5   zinc/200 = #e4e4e7
+   zinc/300 = #d4d4d8   zinc/400 = #a1a1aa   zinc/500 = #71717a
+   zinc/700 = #3f3f46   zinc/800 = #27272a   zinc/900 = #18181b
+   zinc/950 = #09090b
+   Brand/500 = #00c2ff   Brand/800 = #006b99 (teal)
+   ─────────────────────────────────────────────────────────────── */
+
+/* ── DARK MODE (default) ────────────────────────────────────── */
+:root {
+  /* Base */
+  --background:         #0a0a0a;
+  --foreground:         #fafafa;
+  --card:               #0a0a0a;
+  --card-foreground:    #fafafa;
+  --popover:            #0a0a0a;
+  --popover-foreground: #fafafa;
+  --muted:              #27272a;
+  --muted-foreground:   #a1a1aa;
+  --border:             rgba(39,39,42,0.9);
+  --input:              #3f3f46;
+  --ring:               #a1a1aa;
+
+  /* Primary = Brand/500 (cyan) */
+  --primary:            #00c2ff;
+  --primary-foreground: #09090b;
+
+  /* Secondary */
+  --secondary:          #27272a;
+  --secondary-foreground: #fafafa;
+
+  /* Accent */
+  --accent:             #27272a;
+  --accent-foreground:  #fafafa;
+
+  /* Destructive */
+  --destructive:        #ef4444;
+  --destructive-foreground: #fafafa;
+
+  /* Radius */
+  --radius: 0.5rem;
+
+  /* ── Chat specifics */
+  --chat-bg:            #18181b;
+  --chat-border:        var(--border);
+  --user-bubble-bg:     #fafafa;
+  --user-bubble-text:   #09090b;
+  --agent-bubble-bg:    #27272a;
+  --agent-bubble-text:  #fafafa;
+
+  /* ── Scrollbar */
+  --scrollbar-thumb:       rgba(63,63,70,0.6);
+  --scrollbar-thumb-hover: rgba(63,63,70,0.9);
+
+  /* ── Controls */
+  --control-inactive-bg:   #27272a;
+  --control-inactive-icon: #ef4444;
+  --control-active-icon:   #fafafa;
+
+  /* ── Status label */
+  --status-label-active:   #a1a1aa;
+  --status-label-idle:     #3f3f46;
+
+  /* ── Agent orb (legacy compat) */
+  --agent-orb: #00c2ff;
+  --agent-orb-glow: rgba(0,194,255,0.3);
+}
+
+/* ── LIGHT MODE ─────────────────────────────────────────────── */
+:root.light {
+  /* Base */
+  --background:         #fdfcfb;
+  --foreground:         #09090b;
+  --card:               #ffffff;
+  --card-foreground:    #09090b;
+  --popover:            #ffffff;
+  --popover-foreground: #09090b;
+  --muted:              #f4f4f5;
+  --muted-foreground:   #71717a;
+  --border:             #e4e4e7;
+  --input:              #e4e4e7;
+  --ring:               #71717a;
+
+  /* Primary = Brand/800 (teal) */
+  --primary:            #006b99;
+  --primary-foreground: #fafafa;
+
+  /* Secondary */
+  --secondary:          #f4f4f5;
+  --secondary-foreground: #09090b;
+
+  /* Accent */
+  --accent:             #f4f4f5;
+  --accent-foreground:  #09090b;
+
+  /* Destructive */
+  --destructive:        #dc2626;
+  --destructive-foreground: #fafafa;
+
+  /* ── Chat specifics */
+  --chat-bg:            #ffffff;
+  --chat-border:        var(--border);
+  --user-bubble-bg:     #09090b;
+  --user-bubble-text:   #fafafa;
+  --agent-bubble-bg:    #f4f4f5;
+  --agent-bubble-text:  #09090b;
+
+  /* ── Scrollbar */
+  --scrollbar-thumb:       rgba(212,212,216,0.7);
+  --scrollbar-thumb-hover: rgba(161,161,170,0.8);
+
+  /* ── Controls */
+  --control-inactive-bg:   #f4f4f5;
+  --control-inactive-icon: #dc2626;
+  --control-active-icon:   #09090b;
+
+  /* ── Status label */
+  --status-label-active:   #3f3f46;
+  --status-label-idle:     #a1a1aa;
+
+  /* ── Agent orb */
+  --agent-orb: #006b99;
+  --agent-orb-glow: rgba(0,107,153,0.3);
+}
+
+@theme inline {
+  --font-sans: 'Instrument Sans', 'Instrument Sans Fallback', sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+/* ── TRANSPARENT FLOATING SCROLLBAR ────────────────────────── */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
+}
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
